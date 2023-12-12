@@ -220,7 +220,11 @@
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\Simon\\Desktop\\GitHubRepoFinalVersion\\WebAPI-Angular-Project-E-CommerceFinalVersion\\.Net+Angular E-CommerceApp\\WebApi\\TheShop\\TheShop.Domain\\TheShop.Domain.csproj": {
+                "projectPath": "C:\\Users\\Simon\\Desktop\\GitHubRepoFinalVersion\\WebAPI-Angular-Project-E-CommerceFinalVersion\\.Net+Angular E-CommerceApp\\WebApi\\TheShop\\TheShop.Domain\\TheShop.Domain.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

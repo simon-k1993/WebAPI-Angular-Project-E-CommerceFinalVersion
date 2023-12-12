@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "ShortName": "EXPRESS",
+    "Description": "Super-fast delivery",
+    "DeliveryTime": "1 Day",
+    "Price": 15
+  },
+  {
+    "id": 2,
+    "ShortName": "STANDARD",
+    "Description": "Reliable and timely",
+    "DeliveryTime": "3-7 Days",
+    "Price": 8
+  },
+  {
+    "id": 3,
+    "ShortName": "ECONOMY",
+    "Description": "Budget-friendly",
+    "DeliveryTime": "7-14 Days",
+    "Price": 4
+  },
+  {
+    "id": 4,
+    "ShortName": "FREEPLUS",
+    "Description": "Free upgraded shipping",
+    "DeliveryTime": "2-3 Weeks",
+    "Price": 0
+  }
+]

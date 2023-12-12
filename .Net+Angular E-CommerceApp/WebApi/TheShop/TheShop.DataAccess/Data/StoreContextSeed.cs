@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using TheShop.Domain.Entities.OrderAggregate;
 using TheShop.Domain.Models;
 
 namespace TheShop.DataAccess.Data
@@ -32,6 +33,13 @@ namespace TheShop.DataAccess.Data
                 var productsData = File.ReadAllText("C:\\Users\\Simon\\Desktop\\.Net+Angular E-CommerceApp\\WebApi\\TheShop\\TheShop.DataAccess\\Data\\SeedData\\products.json");
                 var products = JsonSerializer.Deserialize<List<Product>>(productsData);
                 context.Products.AddRange(products);
+            }
+
+            if (!context.DeliveryMethods.Any())
+            {
+                var deliveryData = File.ReadAllText("C:\\Users\\Simon\\Desktop\\GitHubRepoFinalVersion\\WebAPI-Angular-Project-E-CommerceFinalVersion\\.Net+Angular E-CommerceApp\\WebApi\\TheShop\\TheShop.DataAccess\\Data\\SeedData\\delivery.json");
+                var methods = JsonSerializer.Deserialize<List<DeliveryMethod>>(deliveryData);
+                context.DeliveryMethods.AddRange(methods);
             }
 
             if (context.ChangeTracker.HasChanges()) await context.SaveChangesAsync();
