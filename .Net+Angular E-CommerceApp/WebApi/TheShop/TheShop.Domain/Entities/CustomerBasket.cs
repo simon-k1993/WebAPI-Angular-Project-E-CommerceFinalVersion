@@ -20,5 +20,9 @@ namespace TheShop.Domain.Entities
         public string Id { get; set; }
 
         public List<BasketItem> Items { get; set; } = new List<BasketItem>();
+
+        public int? DeliveryMethodId { get; set; }
+
+        public decimal ShippingPrice { get; set; }
     }
 }

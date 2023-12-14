@@ -1,0 +1,11 @@
+button.nav-link {
+  background: #adb5bd;
+  border-radius: 0;
+  border: none;
+  color: black;
+
+  &:disabled:not(.active) {
+    color: black;
+    background: #adb5bd;
+  }
+}

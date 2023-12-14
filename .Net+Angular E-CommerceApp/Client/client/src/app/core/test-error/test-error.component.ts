@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -11,7 +12,7 @@ export class TestErrorComponent {
   baseUrl = environment.apiUrl;
   validationErrors: string[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,private toastr: ToastrService) {}
 
   get404Error() {
     this.http.get(this.baseUrl + 'products/42').subscribe({
@@ -37,10 +38,19 @@ export class TestErrorComponent {
   get400ValidationError() {
     this.http.get(this.baseUrl + 'products/fortytwo').subscribe({
       next: response => console.log(response),
-      error: error => {
+      error: (error: any) => {
         console.log(error);
-        this.validationErrors = error.errors;
-      }           
-    })
-  }
-}
+  
+        if (error.status === 400 && error.error.errors) {
+         
+          this.validationErrors = error.error.errors;
+  
+          
+          this.toastr.error('Validation error. Please check the form.', 'Validation Error');
+        } else {
+          
+          this.toastr.error('An error occurred. Please try again later.', 'Error');
+        }
+      },
+    });
+}}
