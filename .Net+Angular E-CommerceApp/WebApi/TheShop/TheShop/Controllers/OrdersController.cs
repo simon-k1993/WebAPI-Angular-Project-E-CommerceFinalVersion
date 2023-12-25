@@ -2,11 +2,11 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
-using TheShop.DataAccess.Interfaces;
+using TheShop.Logic.Interfaces;
 using TheShop.Domain.Entities.OrderAggregate;
-using TheShop.DTOs;
 using TheShop.Errors;
 using TheShop.Extensions;
+using TheShop.DTOs;
 
 namespace TheShop.Controllers
 {

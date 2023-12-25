@@ -8,6 +8,8 @@ using TheShop.Domain.Models;
 using TheShop.DTOs;
 using TheShop.Errors;
 using TheShop.Helpers;
+using TheShop.Logic.Interfaces;
+using TheShop.Logic.Services;
 using TheShop.Specifications;
 
 namespace TheShop.Controllers
@@ -15,36 +17,24 @@ namespace TheShop.Controllers
 
     public class ProductsController : BaseApiController
     {
-        private readonly IGenericRepository<Product> _productsRepo;
-        private readonly IGenericRepository<ProductBrand> _productBrandRepo;
-        private readonly IGenericRepository<ProductType> _productTypeRepo;
         private readonly IMapper _mapper;
+        private readonly IProductService _productService;
 
-        public ProductsController(IGenericRepository<Product> productsRepo, 
-            IGenericRepository<ProductBrand> productBrandRepo, IGenericRepository<ProductType> 
-            productTypeRepo, IMapper mapper)
+        public ProductsController(IMapper mapper, IProductService productService)
         {
-            _productsRepo = productsRepo;
-            _productBrandRepo = productBrandRepo;
-            _productTypeRepo = productTypeRepo;
             _mapper = mapper;
+            _productService = productService;
         }
 
         [HttpGet]
         public async Task<ActionResult<Pagination<ProductToReturnDto>>> GetProducts(
            [FromQuery]ProductSpecParams productSpecParams)
         {
-            var spec = new ProductsWithTypesAndBrandsSpecification(productSpecParams);
+            var result = await _productService.ListProducts(productSpecParams);
 
-            var countSpec = new ProductWithFilterForCountSpecification(productSpecParams);
+            var data = _mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductToReturnDto>>(result.products);
 
-            var totalItems = await _productsRepo.CountAsync(countSpec);
-
-            var products = await _productsRepo.ListAsync(spec);
-
-            var data = _mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductToReturnDto>>(products);
-
-            return Ok(new Pagination<ProductToReturnDto>(productSpecParams.PageIndex, productSpecParams.PageSize, totalItems, data));
+            return Ok(new Pagination<ProductToReturnDto>(productSpecParams.PageIndex, productSpecParams.PageSize, result.count, data)) ;
 
         }
 
@@ -56,7 +46,7 @@ namespace TheShop.Controllers
         {
             var spec = new ProductsWithTypesAndBrandsSpecification(id);
 
-            var product = await _productsRepo.GetEntityWithSpec(spec);
+            var product = await _productService.GetProductById(id);
 
             if (product == null) return NotFound(new ApiResponse(404));
 
@@ -67,14 +57,14 @@ namespace TheShop.Controllers
 
         public async Task<ActionResult<IReadOnlyList<ProductBrand>>> GetProductBrands()
         {
-            return Ok(await _productBrandRepo.ListAllAsync());
+            return Ok(await _productService.GetProductBrands());
         }
 
         [HttpGet("types")]
 
         public async Task<ActionResult<IReadOnlyList<ProductType>>> GetProductTypes()
         {
-            return Ok(await _productTypeRepo.ListAllAsync());
+            return Ok(await _productService.GetProductTypes());
         }
 
     }

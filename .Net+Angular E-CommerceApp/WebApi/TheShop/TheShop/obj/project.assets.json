@@ -1701,6 +1701,20 @@
           "bin/placeholder/TheShop.DTOs.dll": {}
         }
       },
+      "TheShop.Logic/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "TheShop.DataAccess": "1.0.0",
+          "TheShop.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/TheShop.Logic.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TheShop.Logic.dll": {}
+        }
+      },
       "TheShop.Specifications/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
@@ -4219,6 +4233,11 @@
       "path": "../TheShop.DTOs/TheShop.DTOs.csproj",
       "msbuildProject": "../TheShop.DTOs/TheShop.DTOs.csproj"
     },
+    "TheShop.Logic/1.0.0": {
+      "type": "project",
+      "path": "../TheShop.Logic/TheShop.Logic.csproj",
+      "msbuildProject": "../TheShop.Logic/TheShop.Logic.csproj"
+    },
     "TheShop.Specifications/1.0.0": {
       "type": "project",
       "path": "../TheShop.Specifications/TheShop.Specifications.csproj",
@@ -4234,7 +4253,9 @@
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.13",
       "Swashbuckle.AspNetCore >= 6.4.0",
       "TheShop.DTOs >= 1.0.0",
-      "TheShop.DataAccess >= 1.0.0"
+      "TheShop.DataAccess >= 1.0.0",
+      "TheShop.Domain >= 1.0.0",
+      "TheShop.Logic >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -4243,11 +4264,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Simon\\Desktop\\GitHubRepoFinalVersion\\WebAPI-Angular-Project-E-CommerceFinalVersion\\.Net+Angular E-CommerceApp\\WebApi\\TheShop\\TheShop\\TheShop.csproj",
+      "projectUniqueName": "C:\\Users\\Simon\\Desktop\\GitHubRepoFinalVersion-Finished Project\\WebAPI-Angular-Project-E-CommerceFinalVersion\\.Net+Angular E-CommerceApp\\WebApi\\TheShop\\TheShop\\TheShop.csproj",
       "projectName": "TheShop",
-      "projectPath": "C:\\Users\\Simon\\Desktop\\GitHubRepoFinalVersion\\WebAPI-Angular-Project-E-CommerceFinalVersion\\.Net+Angular E-CommerceApp\\WebApi\\TheShop\\TheShop\\TheShop.csproj",
+      "projectPath": "C:\\Users\\Simon\\Desktop\\GitHubRepoFinalVersion-Finished Project\\WebAPI-Angular-Project-E-CommerceFinalVersion\\.Net+Angular E-CommerceApp\\WebApi\\TheShop\\TheShop\\TheShop.csproj",
       "packagesPath": "C:\\Users\\Simon\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Simon\\Desktop\\GitHubRepoFinalVersion\\WebAPI-Angular-Project-E-CommerceFinalVersion\\.Net+Angular E-CommerceApp\\WebApi\\TheShop\\TheShop\\obj\\",
+      "outputPath": "C:\\Users\\Simon\\Desktop\\GitHubRepoFinalVersion-Finished Project\\WebAPI-Angular-Project-E-CommerceFinalVersion\\.Net+Angular E-CommerceApp\\WebApi\\TheShop\\TheShop\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Simon\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -4264,11 +4285,17 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\Simon\\Desktop\\GitHubRepoFinalVersion\\WebAPI-Angular-Project-E-CommerceFinalVersion\\.Net+Angular E-CommerceApp\\WebApi\\TheShop\\TheShop.DataAccess\\TheShop.DataAccess.csproj": {
-              "projectPath": "C:\\Users\\Simon\\Desktop\\GitHubRepoFinalVersion\\WebAPI-Angular-Project-E-CommerceFinalVersion\\.Net+Angular E-CommerceApp\\WebApi\\TheShop\\TheShop.DataAccess\\TheShop.DataAccess.csproj"
+            "C:\\Users\\Simon\\Desktop\\GitHubRepoFinalVersion-Finished Project\\WebAPI-Angular-Project-E-CommerceFinalVersion\\.Net+Angular E-CommerceApp\\WebApi\\TheShop\\TheShop.DataAccess\\TheShop.DataAccess.csproj": {
+              "projectPath": "C:\\Users\\Simon\\Desktop\\GitHubRepoFinalVersion-Finished Project\\WebAPI-Angular-Project-E-CommerceFinalVersion\\.Net+Angular E-CommerceApp\\WebApi\\TheShop\\TheShop.DataAccess\\TheShop.DataAccess.csproj"
             },
-            "C:\\Users\\Simon\\Desktop\\GitHubRepoFinalVersion\\WebAPI-Angular-Project-E-CommerceFinalVersion\\.Net+Angular E-CommerceApp\\WebApi\\TheShop\\TheShop.DTOs\\TheShop.DTOs.csproj": {
-              "projectPath": "C:\\Users\\Simon\\Desktop\\GitHubRepoFinalVersion\\WebAPI-Angular-Project-E-CommerceFinalVersion\\.Net+Angular E-CommerceApp\\WebApi\\TheShop\\TheShop.DTOs\\TheShop.DTOs.csproj"
+            "C:\\Users\\Simon\\Desktop\\GitHubRepoFinalVersion-Finished Project\\WebAPI-Angular-Project-E-CommerceFinalVersion\\.Net+Angular E-CommerceApp\\WebApi\\TheShop\\TheShop.Domain\\TheShop.Domain.csproj": {
+              "projectPath": "C:\\Users\\Simon\\Desktop\\GitHubRepoFinalVersion-Finished Project\\WebAPI-Angular-Project-E-CommerceFinalVersion\\.Net+Angular E-CommerceApp\\WebApi\\TheShop\\TheShop.Domain\\TheShop.Domain.csproj"
+            },
+            "C:\\Users\\Simon\\Desktop\\GitHubRepoFinalVersion-Finished Project\\WebAPI-Angular-Project-E-CommerceFinalVersion\\.Net+Angular E-CommerceApp\\WebApi\\TheShop\\TheShop.DTOs\\TheShop.DTOs.csproj": {
+              "projectPath": "C:\\Users\\Simon\\Desktop\\GitHubRepoFinalVersion-Finished Project\\WebAPI-Angular-Project-E-CommerceFinalVersion\\.Net+Angular E-CommerceApp\\WebApi\\TheShop\\TheShop.DTOs\\TheShop.DTOs.csproj"
+            },
+            "C:\\Users\\Simon\\Desktop\\GitHubRepoFinalVersion-Finished Project\\WebAPI-Angular-Project-E-CommerceFinalVersion\\.Net+Angular E-CommerceApp\\WebApi\\TheShop\\TheShop.Logic\\TheShop.Logic.csproj": {
+              "projectPath": "C:\\Users\\Simon\\Desktop\\GitHubRepoFinalVersion-Finished Project\\WebAPI-Angular-Project-E-CommerceFinalVersion\\.Net+Angular E-CommerceApp\\WebApi\\TheShop\\TheShop.Logic\\TheShop.Logic.csproj"
             }
           }
         }

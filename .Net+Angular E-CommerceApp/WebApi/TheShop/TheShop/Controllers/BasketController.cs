@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using TheShop.DataAccess.Interfaces;
 using TheShop.Domain.Entities;
 using TheShop.DTOs;
+using TheShop.Logic.Interfaces;
 
 namespace TheShop.Controllers
 {

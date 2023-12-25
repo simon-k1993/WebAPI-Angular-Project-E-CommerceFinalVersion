@@ -4,7 +4,8 @@ using TheShop.DataAccess.Data;
 using TheShop.DataAccess.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using TheShop.Errors;
-using TheShop.DataAccess.Services;
+using TheShop.Logic.Interfaces;
+using TheShop.Logic.Services;
 
 namespace TheShop.Extensions
 {
@@ -27,7 +28,8 @@ namespace TheShop.Extensions
             services.AddScoped<IOrderService, OrderService>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            services.AddScoped<IProductService, ProductService>();
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());          
             services.Configure<ApiBehaviorOptions>(options =>
             {
                 options.InvalidModelStateResponseFactory = actionContext =>

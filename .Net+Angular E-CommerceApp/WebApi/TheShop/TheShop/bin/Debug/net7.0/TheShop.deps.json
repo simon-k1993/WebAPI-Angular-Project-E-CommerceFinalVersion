@@ -15,7 +15,9 @@
           "Microsoft.EntityFrameworkCore.Tools": "7.0.13",
           "Swashbuckle.AspNetCore": "6.4.0",
           "TheShop.DTOs": "1.0.0",
-          "TheShop.DataAccess": "1.0.0"
+          "TheShop.DataAccess": "1.0.0",
+          "TheShop.Domain": "1.0.0",
+          "TheShop.Logic": "1.0.0"
         },
         "runtime": {
           "TheShop.dll": {}
@@ -875,6 +877,15 @@
           "TheShop.DTOs.dll": {}
         }
       },
+      "TheShop.Logic/1.0.0": {
+        "dependencies": {
+          "TheShop.DataAccess": "1.0.0",
+          "TheShop.Domain": "1.0.0"
+        },
+        "runtime": {
+          "TheShop.Logic.dll": {}
+        }
+      },
       "TheShop.Specifications/1.0.0": {
         "dependencies": {
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
@@ -1561,6 +1572,11 @@
       "sha512": ""
     },
     "TheShop.DTOs/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "TheShop.Logic/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
